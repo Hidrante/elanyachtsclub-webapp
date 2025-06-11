@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles de la Flota - elanyachts.club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'brand-blue': {
+                DEFAULT: '#003366',
+                light: '#00407A',
+                dark: '#002244',
+                100: '#E6F0FF',
+                overlay: 'rgba(0, 25, 51, 0.6)',
+              },
+              'brand-gold': {
+                DEFAULT: '#C09A6B',
+                light: '#D4AF87',
+                dark: '#A58457',
+              },
+              'brand-gray': {
+                DEFAULT: '#F8F9FA',
+                light: '#FDFEFF',
+                text: '#4A5568',
+                dark: '#2D3748',
+                medium: '#A0AEC0',
+                100: '#E2E8F0', // For borders and subtle backgrounds
+              },
+            },
+            boxShadow: {
+              'hero-text':
+                '0px 2px 4px rgba(0,0,0,0.6), 0px 4px 8px rgba(0,0,0,0.4), 0px 6px 12px rgba(0,0,0,0.3)',
+              'card-hover':
+                '0 10px 20px rgba(0,0,0,0.12), 0 6px 6px rgba(0,0,0,0.18)',
+              interactive: '0 4px 14px 0 rgba(0, 51, 102, 0.15)',
+              sheet:
+                '0 10px 30px rgba(0, 25, 51, 0.1), 0 5px 15px rgba(0,0,0,0.07)',
+              top: '0 -4px 6px -1px rgba(0, 0, 0, 0.05), 0 -2px 4px -1px rgba(0, 0, 0, 0.03)',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideInFromRight: {
+                '0%': { transform: 'translateX(100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideOutToLeft: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(-100%)', opacity: '0' },
+              },
+              slideInFromLeft: {
+                '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideOutToRight: {
+                '0%': { transform: 'translateX(0)', opacity: '1' },
+                '100%': { transform: 'translateX(100%)', opacity: '0' },
+              },
+            },
+            animation: {
+              fadeIn: 'fadeIn 0.5s ease-out forwards',
+              slideInFromRight: 'slideInFromRight 0.6s ease-out forwards',
+              slideOutToLeft: 'slideOutToLeft 0.6s ease-in forwards',
+              slideInFromLeft: 'slideInFromLeft 0.6s ease-out forwards',
+              slideOutToRight: 'slideOutToRight 0.6s ease-in forwards',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden; /* Prevent horizontal scroll during slide animations */
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #a0aec0; /* brand-gray-medium */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #003366; /* brand-blue */
+      }
+      .presentation-container {
+        position: relative;
+        overflow: hidden; /* Contains the sliding elements */
+      }
+      .yacht-sheet {
+        width: 100%;
+        position: relative; /* Changed from absolute for simpler flow if only one is visible */
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-brand-gray text-brand-gray-text">
+    <div id="root" class="flex flex-col min-h-screen">
+    </div>
+    Logo de Elan Yachts Club
+    elanyachts.club
+    ¡Navega Más Allá del Lujo!
+    Una travesía diseñada y personalizada, un servicio excepcional para crear tu santuario flotante personal.
+    <script type="module" src="/presentacion.tsx"></script>
+  </body>
+</html>
