@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
+import ElansChatWidget from '../ElansChatWidget'; // <-- 1. IMPORTAMOS EL WIDGET
 import { useNavigation } from '../../contexts/NavigationContext';
 
 export const PublicLayout: React.FC = () => {
@@ -24,6 +25,8 @@ export const PublicLayout: React.FC = () => {
         <Outlet />
       </main>
       <Footer sectionRefs={sectionRefs} scrollToSection={scrollToSection} />
+      
+      <ElansChatWidget /> {/* <-- 2. LO LLAMAMOS ACÁ PARA QUE APAREZCA */}
     </div>
   );
 };

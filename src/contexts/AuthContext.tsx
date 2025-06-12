@@ -1,5 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { User } from 'firebase/auth'; // Assuming you're using Firebase Auth
+// En: src/contexts/AuthContext.tsx
+
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { auth } from '../firebase'; // <-- APUNTAMOS AL NUEVO ARCHIVO
+import { onAuthStateChanged, User } from 'firebase/auth'; // Traemos User de aquí
 
 interface AuthContextType {
   currentUser: User | null;
@@ -17,21 +20,23 @@ export const useAuth = () => {
 };
 
 interface AuthProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // You would typically add the onAuthStateChanged listener here in a real app
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     setCurrentUser(user);
-  //     setLoading(false);
-  //   });
-  //   return unsubscribe; // Cleanup subscription on unmount
-  // }, []);
+  // 3. ¡LE DAMOS VIDA AL CORAZÓN! Descomentamos y activamos el listener.
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    // Esto es importante para que no se quede escuchando cuando el componente no está
+    return unsubscribe; 
+  }, []);
 
   return (
     <AuthContext.Provider value={{ currentUser, loading }}>

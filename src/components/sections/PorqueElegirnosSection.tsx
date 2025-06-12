@@ -1,8 +1,7 @@
 import React, { useState, forwardRef } from 'react';
 import { Section, SectionTitle, Button, TextLead } from '../SectionWrappers';
 import { ImageGallerySlider } from '../ImageGallerySlider';
-import { FilosofiaModal } from '../FilosofiaModal';
-import FilosofiaModal from '../FilosofiaModal';
+import FilosofiaModal from '../FilosofiaModal'; // <--- ¡ESTA SE QUEDA!
 const galleryImages = [
   { src: '/assets/gallery-1.webp', alt: 'Gallery image 1' },
   { src: '/assets/gallery-2.webp', alt: 'Gallery image 2' },

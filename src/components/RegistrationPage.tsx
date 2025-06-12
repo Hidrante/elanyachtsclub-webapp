@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from '../firebaseAuth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase'; // <-- APUNTAMOS AL NUEVO ARCHIVO
 import { useNavigate } from 'react-router-dom';
 
 const RegistrationPage: React.FC = () => {

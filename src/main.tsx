@@ -11,7 +11,7 @@ import LoginPage from './components/LoginPage';
 import RegistrationPage from './components/RegistrationPage';
 import DashboardPage from './components/DashboardPage';
 
-import './index.css';
+import '../index.css'; // Arreglado: con '../' para subir un nivel en los directorios
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
